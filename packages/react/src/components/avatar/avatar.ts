@@ -1,3 +1,1 @@
-export {
-    AvatarRoot as Root
-} from "./avatar-root"
+export { AvatarRoot as Root, type AvatarRootProps } from "./avatar-root";

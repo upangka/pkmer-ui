@@ -46,7 +46,15 @@ export function createContextScope(scopeName: string) {
     };
     
 
-    function useContext() {}
+    function useContext() {
+      const context = React.useContext(Context);
+      if (context === undefined) {
+        throw new Error(
+          `use${scopeName}Context must be used within a ${scopeName}Provider`
+        );
+      }
+      return context;
+    }
 
     
     Provider.displayName = `${scopeName}Provider`;

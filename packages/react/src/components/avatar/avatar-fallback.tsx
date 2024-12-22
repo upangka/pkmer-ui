@@ -1,7 +1,18 @@
-interface AvatarFallbackProps {
-  children: React.ReactNode;
-}
+import { useAvatarContext } from "./use-avatar-context";
+interface AvatarFallbackProps extends React.ComponentPropsWithRef<"span"> {}
 
-export const AvatarFallback:React.FC<AvatarFallbackProps> = ({children}) => {
-    return <span>{children}</span>
-}
+const AvatarFallback: React.FC<AvatarFallbackProps> = (props) => {
+  const { imageLoadingStatus } = useAvatarContext();
+  const { children, ref, ...rest } = props;
+
+  if (imageLoadingStatus === "loaded") {
+    return null;
+  }
+  return (
+    <span ref={ref} {...rest}>
+      {children}
+    </span>
+  );
+};
+
+export { AvatarFallback, type AvatarFallbackProps };
