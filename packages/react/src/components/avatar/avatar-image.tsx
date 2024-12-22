@@ -1,9 +1,10 @@
 import React from "react";
 import { useAvatarContext } from "./use-avatar-context";
 import { useImageLoadingStatus } from "@pkmer-ui/react/hooks/useImageLoadingStatus";
+
 interface AvatarImageProps extends React.ComponentPropsWithRef<"img"> {}
 
-export const AvatarImage: React.FC<AvatarImageProps> = (props) => {
+const AvatarImage: React.FC<AvatarImageProps> = (props) => {
   const { ref, src, alt, ...imgProps } = props;
   const imgStatus = useImageLoadingStatus(src);
   const context = useAvatarContext();
@@ -24,3 +25,5 @@ export const AvatarImage: React.FC<AvatarImageProps> = (props) => {
     </>
   );
 };
+
+export { AvatarImage, type AvatarImageProps };

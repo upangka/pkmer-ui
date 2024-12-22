@@ -1,14 +1,17 @@
 {
-    "extends": "@repo/typescript-config/react-library.json",
-    "compilerOptions": {
-      "outDir": "dist",
-      "baseUrl": ".",
-      "paths": {
-        "@/*": ["src/*"],
-        "@pkmer-ui/react/*": ["src/*"],
-      }
-    },
-    "include": ["./**/*"],
-    "exclude": ["node_modules", "dist"]
-  }
-  
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    // 生成d.ts声明文件
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "outDir": "dist/types",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@pkmer-ui/react/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.tsx","src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

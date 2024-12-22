@@ -1,9 +1,11 @@
 {
   "name": "@pkmer-ui/react",
   "version": "1.0.0",
+  "type": "module",
   "description": "React UI Components",
   "main": "index.js",
   "scripts": {
+    "build": "rollup -c && tsc --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
@@ -12,11 +14,23 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "esbuild": "^0.24.2",
+    "rollup": "^4.29.0",
+    "rollup-plugin-esbuild": "^6.1.1",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "typescript": "^5.7.2"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "exports": {
+    "./avatar": {
+       "import": {
+         "types": "./dist/types/components/avatar/index.d.ts",
+         "default": "./dist/index.js"
+       }
+    }
+  }
 }
