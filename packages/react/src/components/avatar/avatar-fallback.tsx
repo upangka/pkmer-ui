@@ -1,17 +1,16 @@
 import { useAvatarContext } from "./use-avatar-context";
+import {pkmer} from "@/utils/comp-factory"
 interface AvatarFallbackProps extends React.ComponentPropsWithRef<"span"> {}
 
 const AvatarFallback: React.FC<AvatarFallbackProps> = (props) => {
   const { imageLoadingStatus } = useAvatarContext();
-  const { children, ref, ...rest } = props;
+  const {ref, ...rest } = props;
 
   if (imageLoadingStatus === "loaded") {
     return null;
   }
   return (
-    <span ref={ref} {...rest}>
-      {children}
-    </span>
+    <pkmer.span ref={ref} {...rest} />
   );
 };
 

@@ -1,6 +1,5 @@
 import { createContextScope } from "@/utils/create-context";
-
-type ImageLoadingStatus = "loading" | "loaded" | "error" | "idle";
+import type { ImageLoadingStatus } from "@/hooks/useImageLoadingStatus"
 
 type AvatarContext = {
   imageLoadingStatus: ImageLoadingStatus;
